@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+
+        <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
+            <div (click)="goToPokemon(pokemon)"  class="card horizontal"  pkmnBorderCard >
+                <div class="card-image"  >
+                    <img [src]="pokemon.picture">
+                    <div class="card-stacked">
+                        <div class="card-content" >
+                            <p>{{pokemon.name}}</p>
+                            <p><small>{{pokemon.created | date :"dd/MM/yy" }}</small></p>
+                            <span 
+                            *ngFor="let type of pokemon.types" class="{{type | pokemonTypeColor}}">
+                            {{type}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- renvoi la liste de pokemon-->
+
+<!-- <input
+#input
+(keyup.enter)="selectPokemon(input.value)"
+type="number" -->
+<!-- /> -->
+<!-- keyup applique l'evenement decrit dans selectPokemon et -->
+<!--. enter permet de lancer la fonction que quand je tape sur la touche entrer-->
+<!-- <p *ngIf="pokemonSelected">Vous avez selectionné le pokemon : {{pokemonSelected?.name}}</p> -->
+<!-- avec *ngIf si j'ai un pokemon j'affiche qque chose sinon rien comme le decrit la fonction pokemonSelected-->
+<!-- <p *ngIf="!pokemonSelected">Aucun pokemon trouvé pour le moment</p> -->
